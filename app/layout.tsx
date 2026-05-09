@@ -1,6 +1,11 @@
 import type { Metadata } from 'next';
 import { Alan_Sans } from 'next/font/google';
 import LocalFont from 'next/font/local';
+
+import NextTopLoader from 'nextjs-toploader';
+
+import SiteLayout from '@/components/site-layout';
+import ThemeProvider from '@/components/theme-provider';
 import './globals.css';
 
 const stedelijk = LocalFont({
@@ -10,7 +15,7 @@ const stedelijk = LocalFont({
 const alan = Alan_Sans({
   variable: '--font-alan',
   weight: ['300', '400', '500', '600', '700', '800', '900'],
-  adjustFontFallback: true,
+  adjustFontFallback: false,
   subsets: ['latin'],
 });
 
@@ -38,12 +43,16 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${stedelijk.variable} ${alan.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <head>
         <meta name="apple-mobile-web-app-title" content="ExCode Labs" />
       </head>
       <body>
-        <main className="flex flex-col">{children}</main>
+        <ThemeProvider>
+          <NextTopLoader color="var(--color-accent)" showSpinner={false} />
+          <SiteLayout>{children}</SiteLayout>
+        </ThemeProvider>
       </body>
     </html>
   );
