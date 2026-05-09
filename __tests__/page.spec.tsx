@@ -1,34 +1,64 @@
 import { render, screen } from '@testing-library/react';
 
 import Home from '@/app/page';
+import { siteConfig } from '@/lib/site-config';
 
 describe('Home Page', () => {
-  it('renders a heading', () => {
+  it('renders the hero heading from site config', () => {
     render(<Home />);
     const heading = screen.getByRole('heading', { level: 1 });
     expect(heading).toBeInTheDocument();
+    expect(heading).toHaveTextContent(siteConfig.home.hero.heading);
   });
 
-  it('displays EXCODE Labs text', () => {
+  it('renders the services and portfolio sections', () => {
     render(<Home />);
-    const heading = screen.getByRole('heading', { level: 1 });
-    expect(heading).toHaveTextContent('EXCODE Labs');
+    expect(
+      screen.getByRole('heading', { level: 2, name: 'Services' })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', {
+        level: 2,
+        name: 'Portfolio Highlights',
+      })
+    ).toBeInTheDocument();
   });
 
-  it('has correct styling classes', () => {
+  it('renders all configured service cards', () => {
     render(<Home />);
-    const container = screen.getByRole('heading', { level: 1 }).parentElement;
-    expect(container).toHaveClass(
-      'flex',
-      'flex-col',
-      'items-center',
-      'justify-center',
-      'min-h-screen'
-    );
+
+    for (const service of siteConfig.services) {
+      expect(
+        screen.getByRole('heading', { level: 3, name: service.title })
+      ).toBeInTheDocument();
+      expect(screen.getByText(service.description)).toBeInTheDocument();
+    }
   });
 
-  it('renders without crashing', () => {
-    const { container } = render(<Home />);
-    expect(container).toBeTruthy();
+  it('renders testimonials and client chips from config', () => {
+    render(<Home />);
+
+    for (const testimonial of siteConfig.testimonials) {
+      expect(
+        screen.getByRole('heading', { level: 3, name: testimonial.author })
+      ).toBeInTheDocument();
+      expect(screen.getByText(testimonial.role)).toBeInTheDocument();
+    }
+
+    for (const client of siteConfig.clients) {
+      const chips = screen.getAllByText(client);
+      expect(chips.length).toBeGreaterThanOrEqual(2);
+    }
+  });
+
+  it('renders contact promo CTA with configured destination', () => {
+    render(<Home />);
+
+    const cta = screen.getByRole('link', {
+      name: siteConfig.home.contactPromo.ctaLabel,
+    });
+
+    expect(cta).toBeInTheDocument();
+    expect(cta).toHaveAttribute('href', siteConfig.home.contactPromo.ctaHref);
   });
 });
