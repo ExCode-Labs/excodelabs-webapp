@@ -38,7 +38,7 @@ export default function ThemeSwitcher() {
               onClick={() => setTheme(option.value)}
               className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
                 isActive
-                  ? 'bg-white text-[var(--color-primary)]'
+                  ? 'bg-white text-primary'
                   : 'text-white/85 hover:bg-white/15'
               }`}
               aria-pressed={isActive}
