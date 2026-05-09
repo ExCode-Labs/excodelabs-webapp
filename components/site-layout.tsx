@@ -1,0 +1,18 @@
+import type { ReactNode } from 'react';
+
+import Footer from '@/components/footer';
+import Navbar from '@/components/navbar';
+
+type SiteLayoutProps = {
+  children: ReactNode;
+};
+
+export default function SiteLayout({ children }: SiteLayoutProps) {
+  return (
+    <>
+      <Navbar />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </>
+  );
+}
