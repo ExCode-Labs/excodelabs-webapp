@@ -159,12 +159,6 @@ export const siteConfig = {
         'Design APIs, data models, and observability pipelines that stay reliable under production traffic.',
       location: 'Remote',
     },
-    {
-      title: 'Product Designer',
-      description:
-        'Turn user research into practical product flows and polished interface systems across web and mobile.',
-      location: 'On-site / Hybrid',
-    },
   ],
   team: [
     {
