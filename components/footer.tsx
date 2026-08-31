@@ -44,6 +44,7 @@ export default function Footer() {
           <div className="mt-5 flex gap-3">
             {siteConfig.socialLinks.map((social) => (
               <a
+                target={social.target}
                 key={social.label}
                 href={social.href}
                 className="footer-pill"
