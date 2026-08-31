@@ -23,11 +23,7 @@ export const siteConfig = {
     mapEmbedUrl:
       'https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15555.83889885402!2d77.61422534689324!3d12.910310148389051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s15th%20Main%20Rd%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1778307251137!5m2!1sen!2sin',
   },
-  socialLinks: [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com' },
-    { label: 'GitHub', href: 'https://github.com' },
-    { label: 'X', href: 'https://x.com' },
-  ],
+  socialLinks: [{ label: 'GitHub', href: 'https://github.com/ExCode-Labs' }],
   home: {
     hero: {
       heading:
