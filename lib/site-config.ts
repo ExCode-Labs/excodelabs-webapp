@@ -1,6 +1,6 @@
 export const siteConfig = {
   company: {
-    name: 'EXCODE Labs',
+    name: 'ExCode Labs',
     shortName: 'EXCODE',
     logoPath: '/EXcode-logo.svg',
     description:
