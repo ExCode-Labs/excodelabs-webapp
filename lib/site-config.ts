@@ -177,17 +177,17 @@ export const siteConfig = {
     {
       title: 'Innovation',
       description:
-        'We solve business problems with practical technology choices, quick feedback loops, and steady iteration.',
+        'We turn real business challenges into practical, production-ready solutions. Through hands-on internships and rapid feedback loops, we give learners the opportunity to work on meaningful projects while helping clients adopt the right technology without unnecessary complexity or cost.',
     },
     {
       title: 'Reliability',
       description:
-        'We build resilient systems and communicate clearly, so there are no surprises during delivery.',
+        'We believe successful projects are built on trust, ownership, and consistency. We follow structured development practices, transparent communication, and continuous testing to deliver dependable, maintainable solutions that clients can confidently use in the real world.',
     },
     {
       title: 'Accessibility',
       description:
-        'We design products that are inclusive, easy to use, and clear for people with different needs and contexts.',
+        'We make technology easier to access—not only for end users, but also for aspiring developers and growing businesses. Our internships provide practical exposure to real project environments, while our solutions are designed to be intuitive, scalable, and cost-effective for startups and organizations operating with lean budgets.',
     },
   ],
 };
