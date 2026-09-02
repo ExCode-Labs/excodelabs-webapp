@@ -3,8 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f7fbff;
-  --foreground: #11213f;
+  --background: #fff7f7;
+  --foreground: #8c9097;
   --color-primary: #0052c9;
   --color-primary-strong: #003f9a;
   --color-accent: #ff751f;
@@ -17,9 +17,9 @@
 }
 
 .dark {
-  --background: #0b1528;
-  --foreground: #e8f1ff;
-  --color-primary: #7aaeff;
+  --background: #243653;
+  --foreground: #fff8e8;
+  --color-primary: #4a77c0;
   --color-primary-strong: #5c94ed;
   --color-accent: #ff9d59;
   --color-accent-strong: #ff8736;
