@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 import Button from '@/components/button';
 import Card from '@/components/card';
 import ContactForm from '@/components/contact-form';
@@ -5,7 +9,21 @@ import Hero from '@/components/hero';
 import Section from '@/components/section';
 import { siteConfig } from '@/lib/site-config';
 
+type Service = {
+  title: string;
+  description: string;
+  icon: string;
+};
+
 export default function Home() {
+  const [services, setServices] = useState<Service[]>([]);
+
+  useEffect(() => {
+    fetch('/api/services')
+      .then((res) => res.json())
+      .then((data) => setServices(data.services));
+  }, []);
+
   return (
     <>
       <Hero
@@ -21,7 +39,7 @@ export default function Home() {
         subtitle="Outcome-driven engineering capabilities tailored to your stage, team, and growth targets."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {siteConfig.services.map((service) => (
+          {services.map((service) => (
             <Card
               key={service.title}
               title={service.title}
