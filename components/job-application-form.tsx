@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react';
 import Button from '@/components/button';
 
 type JobApplicationFormProps = {
-  roles: string[];
+  readonly roles: string[];
 };
 
 type FormState = {
@@ -23,7 +23,8 @@ type FormStatus = {
   message: string;
 };
 
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailPattern =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/;
 const urlPattern = /^https?:\/\/.+/;
 
 export default function JobApplicationForm({ roles }: JobApplicationFormProps) {
@@ -237,14 +238,13 @@ export default function JobApplicationForm({ roles }: JobApplicationFormProps) {
         </Button>
 
         {status.message ? (
-          <p
+          <output
             className={`text-sm ${
               status.type === 'success' ? 'text-emerald-700' : 'text-rose-700'
             }`}
-            role="status"
           >
             {status.message}
-          </p>
+          </output>
         ) : null}
       </div>
     </form>

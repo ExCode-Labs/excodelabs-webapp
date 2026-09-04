@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react';
 
 type SectionProps = {
-  title: string;
-  subtitle?: string;
-  id?: string;
-  children: ReactNode;
-  className?: string;
+  readonly title: string;
+  readonly subtitle?: string;
+  readonly id?: string;
+  readonly children: ReactNode;
+  readonly className?: string;
 };
 
 export default function Section({

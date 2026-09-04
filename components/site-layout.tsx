@@ -4,7 +4,7 @@ import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
 
 type SiteLayoutProps = {
-  children: ReactNode;
+  readonly children: ReactNode;
 };
 
 export default function SiteLayout({ children }: SiteLayoutProps) {

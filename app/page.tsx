@@ -59,7 +59,7 @@ export default function Home() {
             <Card
               key={item.author}
               title={item.author}
-              description={`\"${item.quote}\"`}
+              description={`"${item.quote}"`}
               footer={
                 <p className="text-sm font-semibold text-primary">
                   {item.role}
