@@ -27,7 +27,7 @@ export default function ServicesPage() {
       subtitle="From product strategy to launch and scale, we help teams build reliable digital products that move business metrics."
     >
       <div className="grid gap-6 md:grid-cols-2">
-        {siteConfig.services.map((service) => (
+        {services.map((service) => (
           <Card
             key={service.title}
             title={service.title}
