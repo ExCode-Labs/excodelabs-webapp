@@ -1,12 +1,12 @@
 import type { ReactNode } from 'react';
 
 type CardProps = {
-  title: string;
-  description: string;
-  image?: ReactNode;
-  badges?: string[];
-  footer?: ReactNode;
-  className?: string;
+  readonly title: string;
+  readonly description: string;
+  readonly image?: ReactNode;
+  readonly badges?: string[];
+  readonly footer?: ReactNode;
+  readonly className?: string;
 };
 
 export default function Card({

@@ -21,6 +21,9 @@ const initialState: FormState = {
   message: '',
 };
 
+const emailPattern =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/;
+
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<FormStatus>({
@@ -32,7 +35,7 @@ export default function ContactForm() {
   const isValid = useMemo(() => {
     return (
       form.name.trim().length >= 2 &&
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) &&
+      emailPattern.test(form.email) &&
       form.message.trim().length >= 10
     );
   }, [form]);
@@ -138,14 +141,13 @@ export default function ContactForm() {
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
         {status.message ? (
-          <p
+          <output
             className={`text-sm ${
               status.type === 'success' ? 'text-emerald-700' : 'text-rose-700'
             }`}
-            role="status"
           >
             {status.message}
-          </p>
+          </output>
         ) : null}
       </div>
     </form>
