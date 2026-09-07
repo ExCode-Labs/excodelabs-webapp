@@ -1,17 +1,26 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useEffect, useState } from 'react';
 
 import Button from '@/components/button';
 import Card from '@/components/card';
 import Section from '@/components/section';
-import { siteConfig } from '@/lib/site-config';
 
-export const metadata: Metadata = {
-  title: 'Services | EXCODE Labs',
-  description:
-    'Detailed software development services from strategy to delivery and scale.',
+type Service = {
+  title: string;
+  description: string;
+  icon: string;
 };
 
 export default function ServicesPage() {
+  const [services, setServices] = useState<Service[]>([]);
+
+  useEffect(() => {
+    fetch('/api/services')
+      .then((res) => res.json())
+      .then((data) => setServices(data.services));
+  }, []);
+
   return (
     <Section
       title="Services"
