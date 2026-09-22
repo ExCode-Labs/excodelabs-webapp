@@ -6,6 +6,9 @@ type ContactPayload = {
   message?: string;
 };
 
+const emailPattern =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/;
+
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ContactPayload;
@@ -13,11 +16,7 @@ export async function POST(request: Request) {
     const email = body.email?.trim() ?? '';
     const message = body.message?.trim() ?? '';
 
-    if (
-      name.length < 2 ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
-      message.length < 10
-    ) {
+    if (name.length < 2 || !emailPattern.test(email) || message.length < 10) {
       return NextResponse.json(
         {
           message:

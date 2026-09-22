@@ -22,27 +22,25 @@ export default function ServicesPage() {
   }, []);
 
   return (
-    <>
-      <Section
-        title="Services"
-        subtitle="From product strategy to launch and scale, we help teams build reliable digital products that move business metrics."
-      >
-        <div className="grid gap-6 md:grid-cols-2">
-          {services.map((service) => (
-            <Card
-              key={service.title}
-              title={service.title}
-              description={service.description}
-              image={<span>{service.icon}</span>}
-              footer={
-                <Button href="/contact" variant="accent">
-                  Request a Quote
-                </Button>
-              }
-            />
-          ))}
-        </div>
-      </Section>
-    </>
+    <Section
+      title="Services"
+      subtitle="From product strategy to launch and scale, we help teams build reliable digital products that move business metrics."
+    >
+      <div className="grid gap-6 md:grid-cols-2">
+        {services.map((service) => (
+          <Card
+            key={service.title}
+            title={service.title}
+            description={service.description}
+            image={<span>{service.icon}</span>}
+            footer={
+              <Button href="/contact" variant="accent">
+                Request a Quote
+              </Button>
+            }
+          />
+        ))}
+      </div>
+    </Section>
   );
 }

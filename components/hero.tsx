@@ -1,10 +1,10 @@
 import Button from '@/components/button';
 
 type HeroProps = {
-  heading: string;
-  subtext: string;
-  ctaLabel: string;
-  ctaHref: string;
+  readonly heading: string;
+  readonly subtext: string;
+  readonly ctaLabel: string;
+  readonly ctaHref: string;
 };
 
 export default function Hero({
